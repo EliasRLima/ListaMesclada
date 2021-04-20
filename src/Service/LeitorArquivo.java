@@ -26,6 +26,11 @@ public class LeitorArquivo {
 		return unificada;
 	}
 	
+	public static Lista getPalavrasOrdenadas(String link) throws FileNotFoundException {
+		Lista palavras = carregaArquivo2(link);
+		return palavras;
+	}
+	
 	public static ArrayList<Lista> getConjuntoListas() {
 		return getConjuntoListas();
 	}
@@ -41,6 +46,20 @@ public class LeitorArquivo {
 			}
 			conjuntoListas.add(aux);
 		}
+	}
+	
+	private static Lista carregaArquivo2(String link) throws FileNotFoundException {
+		Lista aux;
+		Scanner in = new Scanner(new FileReader(link));
+		while (in.hasNextLine()) {
+			String valores[] = in.nextLine().toString().split(" ");
+			aux = new Lista();
+			for(String a : valores) {
+				aux.addNaFrase(new Nodo(a));
+			}
+			return aux; //pegar apenas 1 linhas
+		}
+		return null;
 	}
 	
 	

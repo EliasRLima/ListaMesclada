@@ -12,6 +12,9 @@ public class Teste {
 		
 		Lista unificada = LeitorArquivo.getUnificada("src/Service/listas.txt");
 		unificada.list();
+		
+		Lista frase = LeitorArquivo.getPalavrasOrdenadas("src/Service/frase.txt");
+		frase.text();
 	}
 	
 }
